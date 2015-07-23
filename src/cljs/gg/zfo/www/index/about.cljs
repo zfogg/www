@@ -5,6 +5,7 @@
 
 (defn about-panel []
   [re-com/v-box
+   :class "panel"
    :gap "1em"
    :children [[re-com/title
                :label "This is the About Page."

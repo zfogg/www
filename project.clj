@@ -40,26 +40,31 @@
         :figwheel {:on-jsload "gg.zfo.www.core/onreload"}
         :incremental true
         :compiler {
-          :main           gg.zfo.www.core
-          :output-to      "resources/public/js/gg.zfo.www.js"
-          :output-dir     "resources/public/.tmp/dev"
-          :asset-path     ".tmp/dev"
-          :pretty-print   true
-          :source-map     true}}
+          :main                 gg.zfo.www.core
+          :output-to            "resources/public/js/gg.zfo.www.js"
+          :output-dir           "resources/public/.tmp/dev"
+          :asset-path           ".tmp/dev"
+          :pretty-print         true
+          :source-map           true
+          :source-map-timestamp true
+          :cache-analysis       true
+          :compiler-stats       true}}
 
       { :id "prod" 
         :source-paths ["src/cljs"]
         :incremental false
         :compiler {
-          :main           gg.zfo.www.core
-          :output-to      "resources/public/js/gg.zfo.www.js"
-          :output-dir     "resources/public/.tmp/prod"
-          :asset-path     ".tmp/prod"
-          :optimizations  :advanced
-          :elide-asserts  true
-          :pretty-print   false
-          :output-wrapper true
-          :jar            true}}]}
+          :main            gg.zfo.www.core
+          :output-to       "resources/public/js/gg.zfo.www.js"
+          :output-dir      "resources/public/.tmp/prod"
+          :asset-path      ".tmp/prod"
+          :optimizations   :advanced
+          :closure-defines {"goog.DEBUG" false}
+          :elide-asserts   true
+          :pretty-print    false
+          :output-wrapper  true
+          :static-fns      true
+          :jar             true}}]}
 
   :less {
     :source-paths ["src/less"]
