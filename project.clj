@@ -31,6 +31,8 @@
         :compiler {
           :main           gg.zfo.www.core
           :output-to      "resources/public/js/gg.zfo.www.js"
+          :output-dir     "resources/public/out/dev"
+          :asset-path     "out/dev"
           :language-in    :ecmascript5
           :language-out   :ecmascript5
           :optimizations  :none
@@ -45,6 +47,8 @@
         :compiler {
           :main           gg.zfo.www.core
           :output-to      "resources/public/js/gg.zfo.www.js"
+          :output-dir     "resources/public/out/min"
+          :asset-path     "out/min"
           :language-in    :ecmascript5
           :language-out   :ecmascript5
           :optimizations  :advanced
