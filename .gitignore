@@ -1,0 +1,8 @@
+/resources/public/out
+/target
+
+/figwheel_server.log
+
+/resources/public/js/gg.zfo.www.js
+/resources/public/js/gg.zfo.www.js.map
+
