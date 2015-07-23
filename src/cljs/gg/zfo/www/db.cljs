@@ -2,5 +2,6 @@
 
 
 (def default-db
-  {:name "re-frame"})
+  {:name         "zfogg"
+   :active-panel :default})
 

@@ -1,27 +1,27 @@
 (ns ^:figwheel-always gg.zfo.www.core
-    (:require [reagent.core :as reagent
-               :refer [atom]]
-              [re-frame.core :as re-frame]
-              [gg.zfo.www.handlers]
-              [gg.zfo.www.subs]
-              [gg.zfo.www.routes :as routes]
-              [gg.zfo.www.views :as views]))
+  (:require [reagent.core :as reagent
+             :refer [atom]]
+            [re-frame.core :as re-frame]
+            [gg.zfo.www.handlers]
+            [gg.zfo.www.subs]
+            [gg.zfo.www.nav.routes :as routes]
+            [gg.zfo.www.index.core :as index]))
 
 
-(defn get-root-node []
+(defonce root-node
   (.getElementById js/document "gg.zfo.www.core"))
 
 (defn mount-root []
-  (reagent/render [views/main-panel] (get-root-node)))
+  (reagent/render [index/root-component] root-node))
 
 (defn unmount-root []
-  (reagent/unmount-component-at-node (get-root-node)))
+  (reagent/unmount-component-at-node root-node))
 
 
 (defn reset []
   (if-not (unmount-root)
     (do
-      (routes/app-routes)
+      (routes/make-routes)
       (re-frame/dispatch-sync [:initialize-db])))
   (mount-root))
 
@@ -34,6 +34,5 @@
   (swap! reload-counter inc))
 
 
-(defonce init
-  (reset))
+(defonce init (reset))
 

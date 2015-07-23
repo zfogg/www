@@ -1,8 +1,8 @@
-/resources/public/out
 /target
+/resources/public/.tmp
 
 /figwheel_server.log
 
-/resources/public/js/gg.zfo.www.js
-/resources/public/js/gg.zfo.www.js.map
+/resources/public/js
+/resources/public/css
 
