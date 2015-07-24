@@ -1,0 +1,116 @@
+@import "_hacks";
+@import "_utils";
+@import "_options";
+@import "_bob";
+
+
+@blob-color: @color-pink;
+
+@blob-size:   60px;
+
+@blob-dist-x: 0.65*@blob-size;
+@blob-dist-y: 0.65*@blob-size;
+
+@blob-quanta: 0.2*@blob-size;
+
+
+.blobs {
+    overflow: hidden;
+    margin-bottom: -1.10*@footer-size;
+    border-bottom: inset @footer-size/2 @blob-color;
+
+    position: relative;
+    width: 100%;
+
+    min-height:  1.00*@blob-size;
+    padding-top: 0.25*@blob-size;
+
+    > .blob-wrapper {
+        padding-top: 0.75*@blob-size;
+
+        .hacks();
+        cursor: pointer;
+
+        > .blob {
+            .hacks();
+            .prefixed(transition, all 0.12s ease-in-out);
+            .prefixed(transform, scale(1.0, 1.0));
+            .prefixed(transform-origin, bottom);
+            text-align:    center;
+            width:         100%;
+            height:        100%;
+            line-height:   @blob-size;
+            font-size:     @blob-size/2;
+            color:         white;
+            background:    @blob-color;
+            border-radius: 50%;
+        }
+
+        width:         @blob-size;
+        height:        @blob-size;
+
+        z-index: 1;
+        &:hover {
+            z-index: 2;
+            .blob {
+                .prefixed(transform, scale(1.2, 1.6));
+                color: white;
+            }
+        }
+
+        //animation-duration:        4s;
+        //animation-timing-function: ease-in-out;
+        //animation-iteration-count: infinite;
+        //.loop(@counter) when (@counter > 0) {
+        //    .loop((@counter - 1));
+        //    @anim: mod(@counter - 1, 4) + 1;
+        //    &:nth-child(@{counter}):hover {
+        //        //animation-name: ~"blob-anim-@{anim}";
+        //    }
+        //}
+        //.loop(32);
+    }
+    &:hover .blob {
+        color: rgba(240, 240, 240, 0.50);
+        //.prefixed(transform, scale(1.0, 1.0));
+    }
+}
+
+
+@keyframes blob-anim-1 {
+      0% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+      8% { .prefixed(transform, scale(1.1) translate( 0            ,  0           )); }
+     33% { .prefixed(transform, scale(0.9) translate( 0            ,  0           )); }
+     50% { .prefixed(transform, scale(0.7) translate( 0            , -@blob-dist-y)); }
+     66% { .prefixed(transform, scale(0.9) translate( 0            ,  @blob-dist-y)); }
+     92% { .prefixed(transform, scale(1.2) translate( 0            ,  0           )); }
+    100% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+}
+@keyframes blob-anim-2 {
+      0% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+      8% { .prefixed(transform, scale(1.1) translate( 0            ,  0           )); }
+     33% { .prefixed(transform, scale(0.9) translate( 0            , -@blob-dist-y)); }
+     50% { .prefixed(transform, scale(0.7) translate( 0            ,  @blob-dist-y)); }
+     66% { .prefixed(transform, scale(0.9) translate( 0            ,  0           )); }
+     92% { .prefixed(transform, scale(1.2) translate( 0            ,  0           )); }
+    100% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+}
+@keyframes blob-anim-3 {
+      0% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+     18% { .prefixed(transform, scale(1.1) translate( 0            ,  0           )); }
+     33% { .prefixed(transform, scale(0.9) translate( 0            ,  0           )); }
+     50% { .prefixed(transform, scale(0.7) translate( 0            , -@blob-dist-y)); }
+     66% { .prefixed(transform, scale(0.9) translate( 0            , -@blob-dist-y)); }
+     92% { .prefixed(transform, scale(1.2) translate( 0            ,  0           )); }
+    100% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+}
+@keyframes blob-anim-4 {
+      0% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+      8% { .prefixed(transform, scale(1.1) translate( 0            ,  0           )); }
+     33% { .prefixed(transform, scale(0.9) translate( 0            , -@blob-dist-y)); }
+     50% { .prefixed(transform, scale(0.7) translate( 0            ,  @blob-dist-y)); }
+     66% { .prefixed(transform, scale(0.9) translate( 0            ,  0           )); }
+     92% { .prefixed(transform, scale(1.2) translate( 0            ,  0           )); }
+    100% { .prefixed(transform, scale(1.0) translate( 0            ,  0           )); }
+}
+

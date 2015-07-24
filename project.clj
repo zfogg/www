@@ -50,7 +50,7 @@
           :cache-analysis       true
           :compiler-stats       true}}
 
-      { :id "prod" 
+      { :id "prod"
         :source-paths ["src/cljs"]
         :incremental false
         :compiler {

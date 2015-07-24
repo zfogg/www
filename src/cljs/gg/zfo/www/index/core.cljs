@@ -20,26 +20,32 @@
 
 (defn footer-component []
   [re-com/box
-   :align-self :center
-   :justify    :end
-   :child [:div {:class "blobs"}
-           (map (fn [i]
-             (let [i (inc i)]
-               [:div {:class "blob" :key i} i]))
-              (range 4))]])
+   :class "footer"
+   :child [re-com/h-box
+           :class "blobs"
+           :justify :center
+           :children (map (fn [i]
+                            (let [i (inc i)]
+                              [re-com/box :class "blob-wrapper"
+                               :child [:div {:class "blob"} i]]))
+                          (range 16))]])
 
 
 (defn root-component []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
       [re-com/v-box
-       :attr {:id "root-component"}
        :height "100%"
        :justify :around
        :align :center
-       :children [[header-component]
+       :children [[re-com/box
+                   :class "header-wrapper"
+                   :child [header-component]]
                   [re-com/box
                    :size "1"
                    :child [panels @active-panel]]
-                  [footer-component]]])))
+                  [re-com/box
+                   :class "footer-wrapper"
+                   :width "100%"
+                   :child [footer-component]]]])))
 
