@@ -7,6 +7,10 @@
 
                  [environ "1.0.0"]
 
+                 [binaryage/devtools "0.3.0"]
+                 [org.clojars.stumitchell/clairvoyant "0.1.0-SNAPSHOT"]
+                 [day8/re-frame-tracer "0.1.0-SNAPSHOT"]
+
                  [lein-environ "1.0.0"]
                  [lein-cljsbuild "1.0.6"]
                  [lein-figwheel "0.3.3"]

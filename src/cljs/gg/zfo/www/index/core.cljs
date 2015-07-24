@@ -27,8 +27,8 @@
            :children (map (fn [i]
                             (let [i (inc i)]
                               [re-com/box :class "blob-wrapper"
-                               :child [:div {:class "blob"} i]]))
-                          (range 16))]])
+                               :child [:div {:class "blob"}]]))
+                          (range 32))]])
 
 
 (defn root-component []

@@ -6,12 +6,12 @@
 
 
 (defn home-panel []
-  (let [name (re-frame/subscribe [:name])]
+  (let [my-name (re-frame/subscribe [:my-name])]
     [re-com/v-box
      :class "panel"
      :gap "1em"
      :children [[re-com/title
-                 :label (str "Hello from " @name ". This is the Home Page.")
+                 :label (str "Hello from " @my-name ". This is the Home Page.")
                  :level :level1]
                 [nav/anchor
                  :href "/about"

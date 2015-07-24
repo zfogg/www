@@ -2,6 +2,6 @@
 
 
 (def default-db
-  {:name         "zfogg"
+  {:my-name      "zfogg"
    :active-panel :default})
 

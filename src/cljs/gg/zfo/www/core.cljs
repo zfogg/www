@@ -2,6 +2,7 @@
   (:require [reagent.core :as reagent
              :refer [atom]]
             [re-frame.core :as re-frame]
+            [devtools.core :as devtools]
             [gg.zfo.www.handlers]
             [gg.zfo.www.subs]
             [gg.zfo.www.nav.routes :as routes]
@@ -34,5 +35,8 @@
   (swap! reload-counter inc))
 
 
-(defonce init (reset))
+(defonce init
+  (do
+    (devtools/install!)
+    (reset)))
 

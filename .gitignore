@@ -6,3 +6,5 @@
 /resources/public/js
 /resources/public/css
 
+/.lein*
+

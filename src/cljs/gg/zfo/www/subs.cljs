@@ -1,17 +1,25 @@
 (ns gg.zfo.www.subs
   (:require-macros [reagent.ratom :refer [reaction]])
-  (:require [re-frame.core :as re-frame]))
+  (:require [re-frame.core :as re-frame]
+            [clairvoyant.core :refer-macros [trace-forms]]
+            [re-frame-tracer.core :refer [tracer]]))
 
 
-(defonce sub--name
-  (re-frame/register-sub
-    :name
-    (fn [db]
-      (reaction (:name @db)))))
+(trace-forms
+  {:tracer (tracer :color "brown")}
 
-(defonce sub--active-panel
-  (re-frame/register-sub
-    :active-panel
-    (fn [db _]
-      (reaction (:active-panel @db)))))
+  (defn my-name [db]
+    (reaction (:my-name @db)))
+
+  (defn active-panel [db _]
+    (reaction (:active-panel @db))))
+
+
+(defonce handlers
+  (do
+    (re-frame/register-sub :my-name
+                            my-name)
+
+    (re-frame/register-sub :active-panel
+                            active-panel)))
 

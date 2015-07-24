@@ -1,39 +1,30 @@
 @import "_hacks";
 
 
-
 .keyframes(~"bob", {
-	0% {
-		.prefixed(transform, translateY(-8px));
-	}
-	50% {
-		.prefixed(transform, translateY(-4px));
-	}
-	100% {
-		.prefixed(transform, translateY(-8px));
-	}
+      0% { .prefixed(transform, translateY(-1.50em)); }
+     50% { .prefixed(transform, translateY(-0.25em)); }
+    100% { .prefixed(transform, translateY(-1.00em)); }
 });
 
 .keyframes(~"bob-float", {
-	100% {
-		.prefixed(transform, translateY(-8px));
-	}
+     80% { .prefixed(transform, translateY(-2.00em)); }
+    100% { .prefixed(transform, translateY(-1.50em)); }
 });
 
 
 .bob() {
-	.hacks();
-
-	&:hover,
-	&:focus,
-	&:active {
-		.prefixed(animation-name, ~"bob-float, bob");
-		.prefixed(animation-duration, ~".3s, 1.5s");
-		.prefixed(animation-delay, ~"0s, .3s");
-		.prefixed(animation-timing-function, ~"ease-out, ease-in-out");
-		.prefixed(animation-iteration-count, ~"1, infinite");
-		.prefixed(animation-fill-mode, ~"forwards");
-		.prefixed(animation-direction, ~"normal, alternate");
-	}
+    .hacks();
+    &:hover,
+    &:focus,
+    &:active {
+        .prefixed(animation-name,            ~"bob-float, bob");
+        .prefixed(animation-duration,        ~"0.2s, 1.0s");
+        .prefixed(animation-delay,           ~"0.0s, 0.2s");
+        .prefixed(animation-timing-function, ~"ease-out, ease-in-out");
+        .prefixed(animation-iteration-count, ~"1, infinite");
+        .prefixed(animation-fill-mode,       ~"forwards");
+        .prefixed(animation-direction,       ~"normal, alternate");
+    }
 }
 

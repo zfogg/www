@@ -4,20 +4,18 @@
 @import "_bob";
 
 
-@blob-color: @color-pink;
+@blob-color:  @color-pink;
 
-@blob-size:   60px;
+@blob-size:   5em;
 
-@blob-dist-x: 0.65*@blob-size;
 @blob-dist-y: 0.65*@blob-size;
-
-@blob-quanta: 0.2*@blob-size;
+@blob-quanta: 0.20*@blob-size;
 
 
 .blobs {
     overflow: hidden;
-    margin-bottom: -1.10*@footer-size;
-    border-bottom: inset @footer-size/2 @blob-color;
+    margin-bottom: -1.00*@footer-size;
+    border-bottom: inset @footer-size/4 @blob-color;
 
     position: relative;
     width: 100%;
@@ -26,14 +24,16 @@
     padding-top: 0.25*@blob-size;
 
     > .blob-wrapper {
-        padding-top: 0.75*@blob-size;
+        padding-top:     1.00*@blob-size;
+        padding-bottom:  1.00*@blob-size;
+        margin-bottom:  -1.05*@blob-size;
 
-        .hacks();
+        .bob();
         cursor: pointer;
 
         > .blob {
             .hacks();
-            .prefixed(transition, all 0.12s ease-in-out);
+            .prefixed(transition, all 0.2s ease);
             .prefixed(transform, scale(1.0, 1.0));
             .prefixed(transform-origin, bottom);
             text-align:    center;
@@ -41,7 +41,6 @@
             height:        100%;
             line-height:   @blob-size;
             font-size:     @blob-size/2;
-            color:         white;
             background:    @blob-color;
             border-radius: 50%;
         }
@@ -53,8 +52,7 @@
         &:hover {
             z-index: 2;
             .blob {
-                .prefixed(transform, scale(1.2, 1.6));
-                color: white;
+                .prefixed(transform, scale(1.4, 1.8));
             }
         }
 
@@ -71,8 +69,7 @@
         //.loop(32);
     }
     &:hover .blob {
-        color: rgba(240, 240, 240, 0.50);
-        //.prefixed(transform, scale(1.0, 1.0));
+        .prefixed(transform, scale(0.90, 1.05));
     }
 }
 
